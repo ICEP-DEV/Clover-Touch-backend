@@ -1,0 +1,15 @@
+create table Student(
+	stud_num int PRIMARY KEY,
+    stud_name varchar(100),
+    stud_surname varchar(100),
+    stud_id int,
+    stud_password varchar(100)
+);
+
+create table smartNote(
+	notes_id int AUTO_INCREMENT PRIMARY KEY,
+    notes_title varchar(100),
+    notes_description varchar(10000),
+    notes_date_stamp date,
+    stud_num int, CONSTRAINT stud_notes FOREIGN KEY (stud_num) REFERENCES Student(stud_num)
+)
