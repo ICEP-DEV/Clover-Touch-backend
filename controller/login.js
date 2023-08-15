@@ -21,7 +21,7 @@ app.post('/login', (req, res) => {
     const { studentNumber, password } = req.body;
   
     // Find the user in the database by studentNumber
-    const query = `SELECT * FROM student WHERE stud_Num = ? `;
+    const query = `SELECT * FROM student WHERE stud_Num = ? and stud_password = ?`;
   
     connection.query(query, [studentNumber], (err, results) => {
       if (err) {
