@@ -12,6 +12,7 @@ const port = 4041
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/apiNotes', require('./api/notes'));
+app.use('/user', require('./api/user'))
 
 app.use('/', (req, res) =>{
     res.send('Endpoint')

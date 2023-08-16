@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const session = require('express-session');
+//const session = require('express-session');
 const mysql = require('mysql');
 const connection = require("../config/configDB");
 
@@ -10,18 +10,19 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(session({
+/* app.use(session({
   secret: 'your-secret-key',
   resave: false,
   saveUninitialized: false,
-}));
+})); */
 
 
 app.post('/login', (req, res) => {
-    const { studentNumber, password } = req.body;
+    const  studentNumber = req.body;
+    const password =req.body;
   
     // Find the user in the database by studentNumber
-    const query = `SELECT * FROM student WHERE stud_Num = ? and stud_password = ?`;
+    const query = 'SELECT * FROM student WHERE stud_Num = `{$studentNumber}` and stud_password = `{$password}`';
   
     connection.query(query, [studentNumber], (err, results) => {
       if (err) {
