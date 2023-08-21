@@ -6,13 +6,12 @@ const create_notes = (req, res) => {
   let sql = `insert into smartnote(notes_id, notes_title, notes_description, notes_date_stamp, stud_id)
     values(null,?,?,?,?)`;
     var date = new Date();
-    const notesBody = [req.body.title, req.body.notes_description, date, req.body.stud_id]
+    const notesBody = [req.body.notes_title, req.body.notes_description, date, req.body.stud_id]
   connection.query(sql,notesBody, (err, results) => {
     if(err) {console.log(err);}
     else{
         res.json({ message: "Successfully saved", results: results, success: true});
     }
-    //
   });
 };
 
