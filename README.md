@@ -1,1 +1,1 @@
-# Clever-Touch-backend
+# CleverTouch.Notes.Server
