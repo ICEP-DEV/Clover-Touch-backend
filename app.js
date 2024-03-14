@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+<<<<<<< HEAD
 app.use('/api', require('./routes/user'));
 app.use('/api', require('./routes/level1'));
 app.use('/api', require('./routes/fib'));
@@ -23,6 +24,10 @@ app.use('/api', require('./routes/h2s_results'));
 app.use('/api', require('./routes/survey_results'));
 app.use('/api', require('./routes/fib_results'));
 
+=======
+app.use('/apiNotes', require('./api/notes'));
+app.use('/user', require('./api/user'))
+>>>>>>> c9944f869eb63b70da5cb9c966d0bd808daeff20
 
 app.use('/', (req, res) =>{
     res.send('Endpoint')
